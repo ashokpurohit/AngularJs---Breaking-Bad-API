@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="BBApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-controller="BBCtrl">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row justify-content-center mt-4 header">
+                <img src="img/logo.png" alt="" class="img-fluid">   
+            </div>
+            <div class="row my-4 justify-content-center">
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search characters...." ng-model="search">
+                </div>  
+            </div>
+            <div class="row justify-content-center">
+                <div class="card m-2" ng-repeat="char in characters | filter : search">
+                    <img ng-src={{char.img}} alt="">
+                    <div class="descriptions">
+                        <h2>{{char.name}}</h2>
+                        <ul>
+                            <li>
+                            <strong>Actor Name:</strong> {{char.portrayed}}
+                            </li>
+                            <li>
+                            <strong>Nickname:</strong> {{char.nickname}}
+                            </li>
+                            <li>
+                            <strong>Birthday:</strong> {{char.birthday}}
+                            </li>
+                            <li>
+                            <strong>Status:</strong> {{char.status}}
+                            </li>
+                        </ul>   
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</body>
+</html>
